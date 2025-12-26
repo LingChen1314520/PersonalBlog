@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ContentItem } from '../types';
 import { marked } from 'marked';
@@ -32,11 +31,23 @@ const Projects: React.FC<ProjectsProps> = ({ title, description, projects }) => 
   const loadArticle = async (id: string) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`./articles/${id}.md`);
+      // 从网站根目录的 articles 文件夹加载（对应 public/articles/）
+      const response = await fetch(`/articles/${id}.md`);
+      if (!response.ok) {
+        throw new Error(`无法获取文件: ${response.status}`);
+      }
       const text = await response.text();
-      setArticleContent(marked.parse(text) as string);
+      // marked.parse 支持 Promise 格式
+      const html = await marked.parse(text);
+      setArticleContent(html);
     } catch (error) {
-      setArticleContent('<p class="text-red-500">无法加载文档内容。</p>');
+      console.error('加载文章失败:', error);
+      setArticleContent(`
+        <div class="p-8 bg-red-50 border border-red-100 rounded-2xl text-center">
+          <p class="text-red-500 font-bold mb-2">内容加载失败</p>
+          <p class="text-sm text-red-400">请检查资源文件 <strong>/public/articles/${id}.md</strong> 是否存在。</p>
+        </div>
+      `);
     } finally {
       setIsLoading(false);
     }
