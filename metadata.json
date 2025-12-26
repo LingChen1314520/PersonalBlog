@@ -1,8 +1,5 @@
 {
   "name": "Nova - 个人作品集与博客",
   "description": "一个极简、现代的个人内容展示平台，专注于技术探索、项目沉淀与知识分享。",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }
