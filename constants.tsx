@@ -42,11 +42,11 @@ export const ICONS = {
 
 export const INITIAL_PROJECTS: ContentItem[] = [
   {
-    id: 'building-nova-article',
+    id: 'article001',
     name: '构建 Nova：在代码中寻找极简主义的平衡点',
     description: '深度揭秘本博客系统的架构设计思想，以及为什么我选择了 React 19 和 Vite。',
     tech: ['React 19', 'Tailwind', 'Vite'],
-    link: '#',
+    link: 'https://github.com/LingChen1314520',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600',
     articleId: 'building-nova',
     isFeatured: true,
@@ -54,8 +54,8 @@ export const INITIAL_PROJECTS: ContentItem[] = [
     type: 'article'
   },
   {
-    id: 'nova-system',
-    name: 'Nova 模块化展示平台',
+    id: 'project001',
+    name: ' 🚀 Nova - 个人作品集与博客系统',
     description: '一个基于 React 的、具备管理后台和动态 Markdown 渲染能力的个人展示空间。',
     tech: ['TypeScript', 'Marked', 'Framer'],
     link: 'https://github.com/LingChen1314520',
@@ -65,18 +65,6 @@ export const INITIAL_PROJECTS: ContentItem[] = [
     isLatest: false,
     type: 'project'
   },
-  {
-    id: 'traffic-sim-intro',
-    name: '城市路网数字孪生仿真系统',
-    description: '结合 VISSIM 仿真与微前端可视化技术，实时展示城市交通流动态。',
-    tech: ['VISSIM', 'Python', 'D3.js'],
-    link: '#',
-    image: 'https://images.unsplash.com/photo-1545143333-6382f1d5b893?auto=format&fit=crop&q=80&w=600',
-    articleId: 'traffic-simulation-intro',
-    isFeatured: true,
-    isLatest: true,
-    type: 'project'
-  }
 ];
 
 export const TOOL_LINKS = [
