@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>陈凌的个人博客</title>
+  <title>陈凌的个人博客 - Nova</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,11 +19,15 @@
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
-    .prose h1 { font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; color: #1e293b; }
+    /* 增强 Markdown 渲染样式 */
+    .prose { color: #334155; max-width: 100%; }
+    .prose h1 { font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
     .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #334155; }
-    .prose p { margin-bottom: 1.25rem; line-height: 1.75; color: #475569; }
+    .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
     .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
-    .prose li { margin-bottom: 0.5rem; }
+    .prose blockquote { border-left: 4px solid #6366f1; padding-left: 1rem; font-style: italic; color: #64748b; margin: 1.5rem 0; }
+    .prose code { background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: #6366f1; }
+    .prose strong { color: #1e293b; font-weight: 600; }
   </style>
 <script type="importmap">
 {

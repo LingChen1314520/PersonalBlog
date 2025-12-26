@@ -26,26 +26,30 @@ const Projects: React.FC<ProjectsProps> = ({ title, description, projects }) => 
     if (selectedProjectId && activeProject?.articleId) {
       loadArticle(activeProject.articleId);
     }
-  }, [selectedProjectId]);
+  }, [selectedProjectId, activeProject]);
 
   const loadArticle = async (id: string) => {
     setIsLoading(true);
+    setArticleContent(''); // 清空旧内容
     try {
-      // 从网站根目录的 articles 文件夹加载（对应 public/articles/）
+      // 这里的路径 /articles/ 映射的是项目的 public/articles/ 目录
       const response = await fetch(`/articles/${id}.md`);
       if (!response.ok) {
-        throw new Error(`无法获取文件: ${response.status}`);
+        throw new Error(`文件未找到: ${response.status}`);
       }
       const text = await response.text();
-      // marked.parse 支持 Promise 格式
-      const html = await marked.parse(text);
-      setArticleContent(html);
+      // 解析 Markdown
+      const html = marked.parse(text);
+      // 处理可能的 Promise 返回值（取决于 marked 版本配置）
+      const finalHtml = typeof html === 'string' ? html : await html;
+      setArticleContent(finalHtml);
     } catch (error) {
       console.error('加载文章失败:', error);
       setArticleContent(`
         <div class="p-8 bg-red-50 border border-red-100 rounded-2xl text-center">
           <p class="text-red-500 font-bold mb-2">内容加载失败</p>
-          <p class="text-sm text-red-400">请检查资源文件 <strong>/public/articles/${id}.md</strong> 是否存在。</p>
+          <p class="text-sm text-red-400">请确保文件已放置在 <strong>public/articles/${id}.md</strong></p>
+          <p class="text-xs text-red-300 mt-4">错误信息: ${error instanceof Error ? error.message : 'Unknown Error'}</p>
         </div>
       `);
     } finally {
@@ -93,8 +97,9 @@ const Projects: React.FC<ProjectsProps> = ({ title, description, projects }) => 
             <h1 className="text-4xl font-extrabold mb-8">{activeProject.name}</h1>
             
             {isLoading ? (
-              <div className="flex justify-center py-20">
+              <div className="flex flex-col items-center justify-center py-20 space-y-4">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                <p className="text-sm text-slate-400 font-medium">正在解析内容...</p>
               </div>
             ) : (
               <div 
@@ -160,18 +165,15 @@ const Projects: React.FC<ProjectsProps> = ({ title, description, projects }) => 
                     </span>
                   ))}
                 </div>
-                {project.link && project.link !== '#' && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="p-2.5 bg-slate-50 text-slate-400 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm group/link"
-                    title="点击跳转"
-                    onClick={(e) => e.stopPropagation()}
+                <div className="flex items-center space-x-2">
+                  <button 
+                    onClick={() => setSelectedProjectId(project.id)}
+                    className="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
+                    title="阅读详情"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </a>
-                )}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4.5l7.5 7.5-7.5 7.5M4.5 12h15" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
