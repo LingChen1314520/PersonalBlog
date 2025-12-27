@@ -53,11 +53,11 @@ export const INITIAL_PROJECTS: ContentItem[] = [
     name: '构建 Nova：在代码中寻找极简主义的平衡点',
     description: '深度揭秘本博客系统的架构设计思想，以及为什么我选择了 React 19 和 Vite。',
     tech: ['React 19', 'Tailwind', 'Vite'],
-    link: 'https://github.com/LingChen1314520',
+    link: 'https://github.com/LingChen1314520/PersonalBlog',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600',
     articleId: 'building-nova',
     isFeatured: true,
-    isLatest: true,
+    isLatest: false,
     type: 'article'
   },
   {
@@ -65,11 +65,11 @@ export const INITIAL_PROJECTS: ContentItem[] = [
     name: ' 🚀 Nova - 个人作品集与博客系统',
     description: '一个基于 React 的、具备管理后台和动态 Markdown 渲染能力的个人展示空间。',
     tech: ['TypeScript', 'Marked', 'Framer'],
-    link: 'https://github.com/LingChen1314520',
+    link: 'https://github.com/LingChen1314520/PersonalBlog',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600',
     articleId: 'nova-project-detail',
     isFeatured: true,
-    isLatest: false,
+    isLatest: true,
     type: 'project'
   },
 ];
