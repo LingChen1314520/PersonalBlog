@@ -3,7 +3,7 @@ import React from 'react';
 import { ContentItem } from './types';
 
 // 每次更新 INITIAL_PROJECTS 时，请提升此版本号以强制用户浏览器同步数据
-export const APP_VERSION = '1.4.1';
+export const APP_VERSION = '1.3.2';
 
 export const ICONS = {
   Home: (props: any) => (
