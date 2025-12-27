@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { ContentItem } from '../types';
-import { ICONS } from '../constants';
+import { ICONS, INITIAL_PROJECTS, APP_VERSION } from '../constants';
 
 interface AdminDashboardProps {
   projects: ContentItem[];
@@ -12,6 +12,7 @@ interface AdminDashboardProps {
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ projects, setProjects, onLogout }) => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<ContentItem>>({});
+  const [showSyncSuccess, setShowSyncSuccess] = useState(false);
 
   const toggleFeatured = (id: string) => {
     setProjects(projects.map(p => p.id === id ? { ...p, isFeatured: !p.isFeatured } : p));
@@ -32,16 +33,36 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ projects, setProjects, 
     setEditingId(null);
   };
 
+  const handleSyncWithCode = () => {
+    if (window.confirm('此操作将用 GitHub 源码中的初始配置覆盖您在本地的所有修改，确定吗？')) {
+      setProjects(INITIAL_PROJECTS);
+      localStorage.setItem('nova_app_version', APP_VERSION);
+      setShowSyncSuccess(true);
+      setTimeout(() => setShowSyncSuccess(false), 3000);
+    }
+  };
+
   return (
     <div className="space-y-10 animate-in fade-in duration-500 pb-20">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold">管理员控制台</h1>
-          <p className="text-slate-500">管理您的内容资产、外部链接与权重展示。</p>
+          <p className="text-slate-500 flex items-center mt-1">
+            当前核心数据版本: <span className="ml-2 px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-xs font-mono">{APP_VERSION}</span>
+          </p>
         </div>
-        <button onClick={onLogout} className="px-6 py-2 border border-red-200 text-red-600 rounded-xl font-bold hover:bg-red-50 transition-all text-sm">
-          退出登录
-        </button>
+        <div className="flex items-center space-x-3">
+          <button 
+            onClick={handleSyncWithCode}
+            className="flex items-center space-x-2 px-6 py-2 bg-indigo-50 text-indigo-600 rounded-xl font-bold hover:bg-indigo-100 transition-all text-sm border border-indigo-100"
+          >
+            <ICONS.Refresh className={`w-4 h-4 ${showSyncSuccess ? 'animate-spin' : ''}`} />
+            <span>{showSyncSuccess ? '已同步' : '同步 GitHub 数据'}</span>
+          </button>
+          <button onClick={onLogout} className="px-6 py-2 border border-red-200 text-red-600 rounded-xl font-bold hover:bg-red-50 transition-all text-sm">
+            退出登录
+          </button>
+        </div>
       </div>
 
       {/* Projects Management */}
@@ -120,7 +141,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ projects, setProjects, 
         <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setEditingId(null)} />
           <div className="relative bg-white w-full max-w-lg rounded-[32px] p-8 shadow-2xl animate-in zoom-in-95">
-            <h2 className="text-xl font-bold mb-6">修改内容信息</h2>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold">修改内容信息</h2>
+              <button onClick={() => setEditingId(null)} className="text-slate-400 hover:text-slate-600">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" strokeWidth={2}/></svg>
+              </button>
+            </div>
             <div className="space-y-4">
               <div>
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 block">标题</label>
@@ -151,9 +177,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ projects, setProjects, 
               <div className="flex gap-3 pt-4">
                 <button 
                   onClick={saveEdit}
-                  className="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg"
                 >
-                  保存修改
+                  保存本地修改
                 </button>
                 <button 
                   onClick={() => setEditingId(null)}
@@ -169,9 +195,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ projects, setProjects, 
 
       <div className="p-10 bg-slate-900 rounded-[40px] text-center text-white">
         <ICONS.Sparkles className="w-8 h-8 text-indigo-400 mx-auto mb-4" />
-        <h3 className="font-bold mb-2">管理贴士</h3>
-        <p className="text-sm text-slate-400 max-w-md mx-auto">
-          修改后的内容会立即同步到本地。建议保持标题精简，链接必须以 http(s):// 开头。
+        <h3 className="font-bold mb-2">同步指南</h3>
+        <p className="text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
+          如果您在 GitHub 的 <code className="text-indigo-300">constants.tsx</code> 中修改了文章列表，请务必同时更新 <code className="text-indigo-300">APP_VERSION</code>。用户的浏览器检测到版本变化后，将自动清空旧缓存并加载新内容。
         </p>
       </div>
     </div>

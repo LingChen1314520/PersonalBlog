@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Page, ContentItem } from './types';
-import { ICONS, INITIAL_PROJECTS } from './constants';
+import { ICONS, INITIAL_PROJECTS, APP_VERSION } from './constants';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -19,8 +19,22 @@ const App: React.FC = () => {
   const [loginError, setLoginError] = useState('');
 
   const [projects, setProjects] = useState<ContentItem[]>(() => {
-    const saved = localStorage.getItem('nova_projects');
-    return saved ? JSON.parse(saved) : INITIAL_PROJECTS;
+    const savedVersion = localStorage.getItem('nova_app_version');
+    const savedProjects = localStorage.getItem('nova_projects');
+    
+    // 如果版本不一致或没有存储数据，则强制使用代码中的 INITIAL_PROJECTS
+    if (savedVersion !== APP_VERSION || !savedProjects) {
+      console.log(`检测到新版本 ${APP_VERSION}，正在同步远程内容...`);
+      localStorage.setItem('nova_app_version', APP_VERSION);
+      localStorage.setItem('nova_projects', JSON.stringify(INITIAL_PROJECTS));
+      return INITIAL_PROJECTS;
+    }
+    
+    try {
+      return JSON.parse(savedProjects);
+    } catch (e) {
+      return INITIAL_PROJECTS;
+    }
   });
 
   useEffect(() => {
@@ -40,7 +54,6 @@ const App: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // chen1234 的 Base64 是 Y2hlbjEyMzQ=
     const encoded = btoa(unescape(encodeURIComponent(loginPwd)));
     if (encoded === 'Y2hlbjEyMzQ=') {
       setIsAdmin(true);
@@ -115,7 +128,7 @@ const App: React.FC = () => {
         onOpenLogin={() => setShowLoginModal(true)}
       />
 
-      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? (isSidebarCollapsed ? 'md:ml-20' : 'md:ml-64') : 'ml-0'} pt-16 md:pt-0`}>
+      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? (isSidebarCollapsed ? 'md:ml-20' : 'md:ml-64') : 'md:ml-0'} pt-16 md:pt-0`}>
         <div className="max-w-6xl mx-auto p-4 md:p-8">
           {renderPage()}
         </div>
