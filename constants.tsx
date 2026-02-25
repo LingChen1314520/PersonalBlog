@@ -3,7 +3,7 @@ import React from 'react';
 import { ContentItem } from './types';
 
 // 每次更新 INITIAL_PROJECTS 时，请提升此版本号以强制用户浏览器同步数据
-export const APP_VERSION = '1.4.1';
+export const APP_VERSION = '1.4.2';
 
 export const ICONS = {
   Home: (props: any) => (
@@ -56,7 +56,7 @@ export const INITIAL_PROJECTS: ContentItem[] = [
     link: 'https://github.com/LingChen1314520/PersonalBlog',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600',
     articleId: 'building-nova',
-    isFeatured: true,
+    isFeatured: false,
     isLatest: false,
     type: 'article'
   },
@@ -68,6 +68,18 @@ export const INITIAL_PROJECTS: ContentItem[] = [
     link: 'https://github.com/LingChen1314520/PersonalBlog',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600',
     articleId: 'nova-project-detail',
+    isFeatured: true,
+    isLatest: true,
+    type: 'project'
+  },
+  {
+    id: 'project002',
+    name: '🛠️ WindowAutomationControlTool',
+    description: '一个基于 Windows API 的窗口自动化控制工具，旨在简化桌面应用的自动化操作流程。',
+    tech: ['ptyhon', '.NET', 'Windows API'],
+    link: 'https://github.com/LingChen1314520/WindowAutomationControlTool',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600',
+    articleId: 'window-automation-tool',
     isFeatured: true,
     isLatest: true,
     type: 'project'
