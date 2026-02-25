@@ -17,7 +17,7 @@ const Home: React.FC<HomeProps> = ({ projects, onNavigate }) => {
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-[40px] bg-indigo-600 p-8 md:p-16 text-white shadow-2xl">
         <div className="relative z-10 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight"> 欢迎，重庆交通大学老师莅临指导 </h1>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight"> 欢迎重庆交通大学的老师们来我的小站逛逛，请多多指教！ </h1>
           <p className="text-indigo-100 text-lg md:text-xl mb-10 leading-relaxed font-medium">
             专注于构建极简且高效的数字产品，在代码与逻辑中寻找艺术的平衡。
           </p>
