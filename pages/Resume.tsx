@@ -34,18 +34,18 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
   // 3个核心阶段定义
   const sections: ResumeSection[] = [
     {
-      title: "学术启航 · 山东航空学院",
+      title: "山东航空学院",
       period: "2022.08 - 2026.07",
-      bgClass: "from-blue-50 to-indigo-50 border-blue-100",
+      bgClass: "bg-white border-slate-200",
       accentColor: "indigo",
-      role: "交通工程本科学历 & 教学/科研实践者",
+      role: "交通工程 & 本科学历",
       items: [
         {
           title: "📚 专业主修与基础",
           desc: "系统掌握交通工程学、交通规划、交通管理与控制、道路工程、运筹学等核心课程体系，具备深厚的理论素养。"
         },
         {
-          title: "💻 交通实验室核心成员/助理",
+          title: "💻 交通实验室助理",
           desc: "负责实验室日常高效运营与跨年级技术交流，深度协助任课老师完成交通仿真实验配置、路网模型跑测及海量数据分析，熟悉各类研究流程。"
         },
         {
@@ -53,9 +53,10 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
           desc: "跨部门协助院系策划并组织各类顶级学科竞赛与专业讲座。负责准备备赛试题、精美汇报PPT以及实操指南等，统筹并筛选超百个创新项目资料。"
         },
         {
-          title: "🏆 国家与省级顶级荣誉勋章",
+          title: "🏆 国家与省级荣誉勋章",
           items: [
-            "🏆 山东省 2025 年大学生创新训练计划【优秀项目结项】—— 撰写学术论文《面向区域路网的信号灯协调控制研究》",
+            "🏆 山东省 2025 年大学生创新训练计划【优秀项目结项】",
+            "📚 撰写学术论文《面向区域路网的信号灯协调控制研究》",
             "✨ 山东省 2024 年全国大学生数学建模大赛【一等奖】",
             "📊 山东省 2024 年全国大学生统计建模大赛【一等奖】",
             "🧠 山东省 2023 年大学生智能技术应用设计大赛【一等奖】",
@@ -65,11 +66,11 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
       ]
     },
     {
-      title: "产业深耕 · 特路（北京）科技有限公司",
+      title: "特路（北京）科技有限公司",
       period: "2026.05 - 至今",
-      bgClass: "from-slate-900 via-slate-800 to-indigo-950 text-white border-slate-700",
+      bgClass: "bg-white border-slate-200",
       accentColor: "indigo",
-      role: "交通工程师 (核心骨干)",
+      role: "交通工程师",
       items: [
         {
           title: "🛣️ 交通设施设计与精细施工图编制",
@@ -83,15 +84,15 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
           title: "🏪 典型标杆项目展示",
           portfolio: [
             {
-              name: "📍 北京市顺义区公路交通基础设施服务项目",
+              name: "📍 北京市2026年顺义区交通基础设施服务项目(公路)",
               detail: "高维主导32处重点路段千头信号灯新建布设（含AutoCAD制图、安装施工及PPT审查汇报）。亮点路口：顺白路与万科东门、南焦路与信中北街。配套研发13处经典“右转必停”路口并增设红外抓拍执法。"
             },
             {
-              name: "📍 治超工程、省道多功能站点、机电设施提升专项二期",
+              name: "📍 北京市2026年普通公路治超专项工程、普通省道多功能交调站点建设工程、普通公路（隧道）机电设施提升专项工程",
               detail: "定制精细化占道作业合规导引图及全要素限速保护方案。优化警示、发光夜间照明防撞布局，并建立一套涵盖拥堵及特情的多维度应急预案。"
             },
             {
-              name: "📍 智创玲珑大型汽车试验场",
+              name: "📍 智创玲珑汽车试验场",
               detail: "负责该测试中心内部超高速环道、越野路、测试广场的复杂行车流标线工程，运用CAD精确复刻设计标准，保障实车极端压力测试安全。"
             }
           ]
@@ -99,11 +100,11 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
       ]
     },
     {
-      title: "创新实践 · 烟台易路达规划设计有限公司",
+      title: "烟台易路达规划设计有限公司",
       period: "2026.04 - 2026.05",
-      bgClass: "from-emerald-50 to-teal-50 border-emerald-100",
+      bgClass: "bg-white border-slate-200",
       accentColor: "emerald",
-      role: "外部合作交通工程师",
+      role: "交通工程师",
       items: [
         {
           title: "🚗 实干调研与微观交通精准诊断",
@@ -118,18 +119,18 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
           desc: "主持、统筹多套核心项目的专家审查材料准备，高水平配合政府交管、交警支队、行业泰斗汇报，保障规划高通过率并落地实施。"
         },
         {
-          title: "🏪 标杆实践项目",
+          title: "🏪 典型标杆项目展示",
           portfolio: [
             {
-              name: "🏁 中亚轮胎试验场路口渠化设计",
+              name: "📍 中亚轮胎试验场路口渠化设计",
               detail: "重塑试验场交叉节点形式，优化相相位、最大绿灯配时，使用微观物理元胞自动仿真对比改善效果，确保大型工程运输货车无盲区混行安全。"
             },
             {
-              name: "🏁 招远市核心五岔大路口",
+              name: "📍 招远市核心五岔大路口",
               detail: "复杂的多几何路口综合渠化流量控制工程，成功通过多点限流、展宽改善设计平抑拥堵波动。"
             },
             {
-              name: "🏁 栖霞市多路段测速论证",
+              name: "📍 栖霞市多路段测速论证",
               detail: "编写法定车辆测速与路型安全论证报告，严格参照国标与实际测试车速设定阶梯限制，护航道路设计。"
             }
           ]
@@ -229,7 +230,7 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
 
       {/* 桌面端全屏分阶段滑块，只在 lg(1024px) 以上设备展示 */}
       <div 
-        className="hidden lg:block relative rounded-[32px] overflow-hidden h-[calc(100vh-12rem)] min-h-[580px] bg-slate-900 shadow-2xl border border-slate-200 group"
+        className="hidden lg:block relative rounded-[32px] overflow-hidden h-[calc(100vh-12rem)] min-h-[580px] bg-white shadow-xl border border-slate-200 group"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -241,18 +242,18 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
           {sections.map((sec, idx) => (
             <div 
               key={idx} 
-              className={`w-full h-full flex-shrink-0 bg-gradient-to-br ${sec.bgClass} p-12 flex flex-col justify-between overflow-y-auto custom-scrollbar`}
+              className={`w-full h-full flex-shrink-0 ${sec.bgClass} p-12 flex flex-col justify-between overflow-y-auto custom-scrollbar`}
             >
               {/* 卡片头部 */}
-              <div className="flex justify-between items-start border-b border-slate-200/20 pb-4">
+              <div className="flex justify-between items-start border-b border-slate-200 pb-4">
                 <div>
-                  <span className="text-xs uppercase font-extrabold tracking-widest text-[#6366f1] select-none block mb-1">
+                  <span className="text-base uppercase font-extrabold tracking-wider text-indigo-600 select-none block mb-1">
                     STAGE {idx + 1} · {sec.period}
                   </span>
-                  <h2 className="text-3xl font-extrabold tracking-tight">{sec.title}</h2>
-                  <p className="text-slate-400 font-medium text-sm mt-1">{sec.role}</p>
+                  <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">{sec.title}</h2>
+                  <p className="text-slate-700 font-bold text-lg mt-1.5">{sec.role}</p>
                 </div>
-                <div className={`hidden sm:block text-5xl font-black select-none ${idx === 1 ? 'text-white/10' : 'text-slate-900/5'}`}>
+                <div className="hidden sm:block text-5xl font-black select-none text-slate-200">
                   0{idx + 1}
                 </div>
               </div>
@@ -262,15 +263,15 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
                 {/* 核心板块 1 */}
                 <div className="space-y-6">
                   {sec.items.slice(0, 2).map((item, itemIdx) => (
-                    <div key={itemIdx} className="bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/5 shadow-sm space-y-2 hover:bg-white/10 transition-colors">
-                      <h4 className="font-bold text-base flex items-center gap-2">
+                    <div key={itemIdx} className="bg-slate-50/80 rounded-2xl p-5 border border-slate-100 shadow-sm space-y-2.5 hover:bg-slate-100/70 transition-all duration-300 hover:shadow-md">
+                      <h4 className="font-bold text-base flex items-center gap-2 text-slate-900">
                         {item.title}
                       </h4>
-                      {item.desc && <p className="text-xs text-slate-400 leading-relaxed font-normal">{item.desc}</p>}
+                      {item.desc && <p className="text-xs text-slate-600 leading-relaxed font-semibold">{item.desc}</p>}
                       {item.items && (
                         <ul className="space-y-1.5 pl-2">
                           {item.items.map((it: string, itIdx: number) => (
-                            <li key={itIdx} className="text-xs text-slate-300 leading-relaxed font-medium block">
+                            <li key={itIdx} className="text-xs text-slate-600 leading-relaxed font-semibold block">
                               {it}
                             </li>
                           ))}
@@ -283,16 +284,16 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
                 {/* 核心板块 2 -- 包含荣誉或典型的案例详情 */}
                 <div className="space-y-6 overflow-y-auto custom-scrollbar max-h-[340px] pr-2">
                   {sec.items.slice(2).map((item, itemIdx) => (
-                    <div key={itemIdx} className="bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/5 shadow-sm space-y-2 hover:bg-white/10 transition-colors">
-                      <h4 className="font-bold text-base flex items-center gap-2">
+                    <div key={itemIdx} className="bg-slate-50/80 rounded-2xl p-5 border border-slate-100 shadow-sm space-y-2.5 hover:bg-slate-100/70 transition-all duration-300 hover:shadow-md">
+                      <h4 className="font-bold text-base flex items-center gap-2 text-slate-900">
                         {item.title}
                       </h4>
-                      {item.desc && <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>}
+                      {item.desc && <p className="text-xs text-slate-600 leading-relaxed font-semibold">{item.desc}</p>}
                       {item.items && (
                         <ul className="space-y-2 pl-1">
                           {item.items.map((it: string, itIdx: number) => (
-                            <li key={itIdx} className="text-xs text-slate-300 flex items-start gap-2">
-                              <span className="text-indigo-400">✦</span>
+                            <li key={itIdx} className="text-xs text-slate-600 flex items-start gap-2 font-medium">
+                              <span className="text-indigo-600">✦</span>
                               <span>{it}</span>
                             </li>
                           ))}
@@ -303,9 +304,9 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
                       {item.portfolio && (
                         <div className="space-y-3 mt-2">
                           {item.portfolio.map((port: PortfolioItem, portIdx: number) => (
-                            <div key={portIdx} className="p-3 bg-slate-900/40 rounded-xl border border-white/5 space-y-1">
-                              <div className="text-xs font-bold text-indigo-300">{port.name}</div>
-                              <div className="text-[11px] text-slate-400 leading-relaxed">{port.detail}</div>
+                            <div key={portIdx} className="p-3 bg-white rounded-xl border border-slate-200 shadow-sm space-y-1.5 hover:border-indigo-150 transition-colors">
+                              <div className="text-xs font-bold text-indigo-600">{port.name}</div>
+                              <div className="text-[11px] text-slate-600 leading-relaxed font-semibold">{port.detail}</div>
                             </div>
                           ))}
                         </div>
@@ -316,21 +317,21 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
               </div>
 
               {/* 卡片底部控制辅助 */}
-              <div className="flex items-center justify-between border-t border-slate-200/20 pt-4 text-xs text-slate-400">
+              <div className="flex items-center justify-between border-t border-slate-200 pt-4 text-xs text-slate-500">
                 <p>💡 您可以按键盘 <strong>↑↓</strong> 或使用 <strong>鼠标滚轮</strong> 丝滑换页</p>
                 <div className="flex items-center space-x-2">
                   <button
                     disabled={activeSection === 0}
                     onClick={() => setActiveSection(p => p - 1)}
-                    className="p-1.5 hover:bg-white/10 rounded-lg disabled:opacity-30 transition-colors"
+                    className="p-1.5 hover:bg-slate-100 text-slate-600 rounded-lg disabled:opacity-30 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </button>
-                  <span className="font-bold tracking-widest text-[#6366f1]">{activeSection + 1} / {sections.length}</span>
+                  <span className="font-bold tracking-widest text-indigo-600">{activeSection + 1} / {sections.length}</span>
                   <button
                     disabled={activeSection === sections.length - 1}
                     onClick={() => setActiveSection(p => p + 1)}
-                    className="p-1.5 hover:bg-white/10 rounded-lg disabled:opacity-30 transition-colors"
+                    className="p-1.5 hover:bg-slate-100 text-slate-600 rounded-lg disabled:opacity-30 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </button>
@@ -352,15 +353,15 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
               >
                 <span className={`
                   text-[11px] font-bold uppercase tracking-widest pr-2 transition-all opacity-0 group-hover:opacity-100 duration-300
-                  ${isActive ? 'text-indigo-400 font-extrabold scale-105' : 'text-slate-400'}
+                  ${isActive ? 'text-indigo-600 font-extrabold scale-105' : 'text-slate-500'}
                 `}>
                   {sec.title.split(' · ')[1] || sec.title}
                 </span>
                 <span className={`
                   w-3.5 h-3.5 rounded-full border-2 transition-all duration-300
                   ${isActive 
-                    ? 'bg-indigo-500 border-indigo-400 scale-125' 
-                    : 'bg-white/10 border-white/20 hover:bg-white/30'}
+                    ? 'bg-indigo-600 border-indigo-500 scale-125' 
+                    : 'bg-slate-200 border-slate-300 hover:bg-slate-300'}
                 `} />
               </button>
             );
@@ -380,9 +381,9 @@ const Resume: React.FC<ResumeProps> = ({ onNavigate }) => {
 
             <div className="space-y-4 pl-2">
               <div>
-                <span className="text-[10px] font-bold text-indigo-600 block tracking-widest">{sec.period}</span>
+                <span className="text-sm font-extrabold text-indigo-600 block tracking-wider">{sec.period}</span>
                 <h3 className="text-xl font-bold tracking-tight text-slate-900 mt-0.5">{sec.title}</h3>
-                <p className="text-xs text-slate-500 mt-1 font-semibold">{sec.role}</p>
+                <p className="text-base text-slate-700 mt-1 font-bold">{sec.role}</p>
               </div>
 
               {/* 细分条目 */}
