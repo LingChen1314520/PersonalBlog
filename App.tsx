@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Tools from './pages/Tools';
 import More from './pages/More';
+import Resume from './pages/Resume';
 import AdminDashboard from './pages/AdminDashboard';
 
 const App: React.FC = () => {
@@ -90,6 +91,7 @@ const App: React.FC = () => {
         />
       );
       case Page.TOOLS: return <Tools />;
+      case Page.RESUME: return <Resume onNavigate={setCurrentPage} />;
       case Page.MORE: return <More />;
       case Page.ADMIN: return isAdmin ? (
         <AdminDashboard 

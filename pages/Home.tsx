@@ -162,7 +162,14 @@ const Home: React.FC<HomeProps> = ({ projects, onNavigate }) => {
                   <p className="text-sm font-bold text-slate-900">交通流理论 & 控制</p>
                 </div>
               </div>
-              <div className="pt-4">
+              <div className="flex flex-wrap gap-4 pt-4">
+                <button 
+                  onClick={() => onNavigate(Page.RESUME)}
+                  className="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all flex items-center space-x-3 shadow-lg hover:-translate-y-1"
+                >
+                  <ICONS.Resume className="w-5 h-5" />
+                  <span>查看个人履历</span>
+                </button>
                 <button 
                   onClick={() => onNavigate(Page.MORE)}
                   className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all flex items-center space-x-3 shadow-lg hover:-translate-y-1"

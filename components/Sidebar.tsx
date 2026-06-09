@@ -28,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     { id: Page.HOME, label: '主页', icon: ICONS.Home },
     { id: Page.ARTICLES, label: '深度文章', icon: ICONS.Article },
     { id: Page.PROJECTS, label: '实战项目', icon: ICONS.Project },
+    { id: Page.RESUME, label: '个人履历', icon: ICONS.Resume },
     { id: Page.TOOLS, label: '实用工具', icon: ICONS.Tools },
     { id: Page.MORE, label: '更多信息', icon: ICONS.More },
   ];

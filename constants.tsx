@@ -3,7 +3,7 @@ import React from 'react';
 import { ContentItem } from './types';
 
 // 每次更新 INITIAL_PROJECTS 时，请提升此版本号以强制用户浏览器同步数据
-export const APP_VERSION = '1.4.2';
+export const APP_VERSION = '1.4.3';
 
 export const ICONS = {
   Home: (props: any) => (
@@ -44,6 +44,9 @@ export const ICONS = {
   ),
   Refresh: (props: any) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+  ),
+  Resume: (props: any) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
   ),
 };
 

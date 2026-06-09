@@ -19,6 +19,7 @@ export enum Page {
   ARTICLES = 'articles',
   PROJECTS = 'projects',
   TOOLS = 'tools',
+  RESUME = 'resume',
   MORE = 'more',
   ADMIN = 'admin'
 }
